@@ -31,7 +31,7 @@ namespace HotelListing
 
             services.AddCors(o =>
             {
-                o.AddPolicy("CorsePolicy", builder =>
+                o.AddPolicy("AllowAll", builder =>
                 builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader()
                 );   // This is who can use our API. Carefull if we leave this, then everyone can see and use our API
             });
@@ -52,7 +52,7 @@ namespace HotelListing
             }
             
             app.UseHttpsRedirection();
-            app.UseCors("CorsePolicy");
+            app.UseCors("AllowAll");
             app.UseRouting();
 
             app.UseAuthorization();
